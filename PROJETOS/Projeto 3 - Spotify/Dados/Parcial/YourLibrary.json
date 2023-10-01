@@ -1,0 +1,65 @@
+{
+  "tracks": [
+    {
+      "artist": "Motörhead",
+      "album": "Iron Fist",
+      "track": "Heart of Stone",
+      "uri": "spotify:track:6affum4HMzmKi7WFeu8ajz"
+    }
+  ],
+  "albums": [
+    {
+      "artist": "Disturbed",
+      "album": "Divisive",
+      "uri": "spotify:album:592wLCECATlzgwiEWTOPEa"
+    },
+    {
+      "artist": "Judas Priest",
+      "album": "Defenders Of The Faith",
+      "uri": "spotify:album:3o0mPpetAFCOIFkUaw1egl"
+    }
+  ],
+  "shows": [
+    {
+      "name": "Hideo Kojima presents Brain Structure",
+      "publisher": "Spotify Studios",
+      "uri": "spotify:show:16bw2WaRofqq7Vk6A88wLy"
+    }
+  ],
+  "episodes": [
+  ],
+  "bannedTracks": [
+    {
+      "artist": "Renan e Ray",
+      "album": "Adeus",
+      "track": "Amor Eterno",
+      "uri": "spotify:track:3sY4r0w50xhezY1luAKYHx"
+    }
+  ],
+  "artists": [
+    {
+      "name": "Hydra",
+      "uri": "spotify:artist:0orkTgR0geYSkgdKHaoP9V"
+    },
+    {
+      "name": "Kamil Orman-Janowski",
+      "uri": "spotify:artist:1ZKFS56BHZLBKcJWOSFFGT"
+    },
+    {
+      "name": "MACABRE",
+      "uri": "spotify:artist:2lbJzDX11fy6cLeFtlkUA8"
+    },
+    {
+      "name": "Shotgun Messiah",
+      "uri": "spotify:artist:08rXQbq2f7z8o6PRcsmtJJ"
+    }
+  ],
+  "bannedArtists": [
+    {
+      "name": "Mato Grosso e Mathias",
+      "uri": "spotify:artist:1O0h1wj2GMF6RKFfbLTlMY"
+    }
+  ],
+  "other": [
+  ]
+}

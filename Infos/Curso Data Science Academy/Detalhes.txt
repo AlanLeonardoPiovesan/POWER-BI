@@ -1,0 +1,64 @@
+-- DICAS DE APRENDIZADO
+4 fases do aprendizado
+Incompetência Inconsciente - você não sabe o que não sabe!
+Incompetência Consciente - você sabe o que não sabe!
+Competência Consciente - você sabe o que sabe!
+Competência Inconsciente - você sabe de forma inconsciente!
+
+-- TIPOS DE SOLUÇÕES
+DESCRITIVA: O que aconteceu?
+DIAGNÓSTICA: Por que isso aconteceu?
+PREDITIVA: O que acontecerá?
+PRESCRITIVA: que deve ser feito?
+
+-- DADOS > INFORMAÇÕES > CONHECIMENTO > TOMAR DECISÕES
+
+-- ANTES DE QUALQUER PROJETO, É PRECISO ENCONTRAR QUAL O PROBLEMA A SER SOLUCIONADO
+1º PREPARAÇÃO DOS DADOS - QUERY EDITOR
+2º MODELAGEM DOS DADOS - RELATIONSHIP VIEW ou DATA VIEW
+3º VISUALIZAÇÃO DOS DADOS - REPORT VIEW
+
+^^^^^^^^ CONHECIDO COMO ETL
+
+-- DICAS PARA RESOLVER PROBLEMAS
+1º QUANDO SE DEPARAR COM MENSAGENS DE ERRO, ANALISE!
+2º QUANDO SE DEPARAR COM MENSAGENS DE ERRO, PESQUISA!
+3º NÃO SABE? APRENDA!
+4º DESENVOLVA HABILIDADES COM FOCO NA SOLUÇÃO DE PROBLEMAS.
+5º OBSERVE AS PERGUNTAS QUE UMA PESSOA FAZ! ELAS DIZEM MUITO MAIS DO QUE AS RESPOSTAS!
+
+-- MODELO DE ORGANIZAÇÃO DE DADOS
+1º PRECISAMOS CARREGAR OS DADOS DE UMA FORMA QUE FACILITE A EXTRAÇÃO DE RELATÓRIOS
+2º ESCOLHER O MELHOR MODELO DE ORGANIZAÇÃO DE DADOS
+	-PROCESSOS DE NEGÓCIO: IDENTIFICAR, COMPREENDER E DESCREVER - EX: VENDA DE PRODUTOS ELETRONICOS
+	-DEFINIR O NÍVEL DE DETALHAMENTO (GRANULARIDADE) - EX: TOTAL DE PRODUTOS MAIS VENDIDOS POR DIA
+	-IDENTIFICAR AS DIMENSÕES NECESSÁRIAS: DEFINIR O QUE PRECISA SER VISTO E DA MELHOR FORMA - FABRICANTE, PRODUTO, LOJA, TEMPO
+	-CRIAR SCHEMA: MODELO IMPLEMENTADO NO BANCO DE DADOS PARA ORGANIZAÇÃO DOS DADOS - MODELO CRIADO NO DW OU POWER BI
+
+-- GRANULARIDADE= DIFERENTES NIVEIS DE DETALHAMENTO DOS DADOS
+
+-- PRINCIPAIS MODELOS DE ORGANIZAÇÃO DE DADOS MAIS USADOS EM BI
+- STAR SCHEMA
+- SNOWFLAKE SCHEMA
+
+- AO CRIAR UM GRÁFICO, DAR ATENÇÃO:
+Tipo de grafico
+Formatação do grafico
+Se está mapeando os dados corretamente para o gráfico
+Identificar corretamente se os dados estão sendo apresentados em dados númericos ou não númericos
+
+- O QUE VOCÊ DESEJA MOSTRAR NO GRÁFICO?
+Comparação
+	Por Item
+	Por Tempo
+Distribuição
+	Número de Variáveis
+Composição
+	Varia ao longo do tempo
+	Estática
+Relação
+	Duas Variáveis
+	Três Variáveis
+
+- O QUE É DASHBOARD?
+É uma ferramente de gestão e visualização de informações que é usado para monitorar indicadores de desempenho (KPI's), métricas e outros pontos de dados relevantes para o negócio, departamento ou projeto. Uma ferramenta de gerenciamento de informações.
