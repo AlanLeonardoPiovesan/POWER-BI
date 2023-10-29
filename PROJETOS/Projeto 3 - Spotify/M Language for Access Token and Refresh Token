@@ -1,0 +1,32 @@
+let
+    // Defina as informações necessárias para autenticação
+    client_id = "client_id",
+    client_secret = "client_secret",
+    token_url = "https://accounts.spotify.com/api/token", // Por exemplo, https://exemplo.com/token
+    refresh_token = "SeuRefreshToken",
+    
+    // Crie o corpo da solicitação para obter um novo Access Token usando o Refresh Token
+    request_body = "grant_type=refresh_token" & 
+                   "&client_id=" & client_id & 
+                   "&client_secret=" & client_secret & 
+                   "&refresh_token=" & refresh_token,
+    
+    // Crie um cabeçalho para a solicitação
+    request_headers = [#"Content-Type"="application/x-www-form-urlencoded"],
+    
+    // Faça a solicitação HTTP para obter um novo Access Token
+    token_response = Text.FromBinary(
+        Web.Contents(
+            token_url,
+            [Headers=request_headers, Content=Text.ToBinary(request_body)]
+        )
+    ),
+    
+    // Analise a resposta JSON para obter o novo Access Token
+    token_json = Json.Document(token_response),
+    access_token = token_json[access_token]
+    
+    // Agora você pode usar o access_token em suas consultas
+in
+    access_token
+    
