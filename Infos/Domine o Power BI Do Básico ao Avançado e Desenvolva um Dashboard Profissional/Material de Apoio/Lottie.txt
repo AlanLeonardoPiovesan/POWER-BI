@@ -1,0 +1,16 @@
+
+2) Pag Vendas:
+a. Importar visual personalizado do Dimas (de um arquivo): LottieDimasCampos.pbiviz
+b. Ir no Power Query e criar um consulta (chamada Lottie) pelo editor avançado:
+
+let
+    Fonte = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Coluna 1" = _t]),
+    #"Tipo Alterado" = Table.TransformColumnTypes(Fonte,{{"Coluna 1", type text}})
+in
+    #"Tipo Alterado"
+
+
+c. No visual Lottie, arraste o campo Coluna1 em Medida
+d. No pincel de formatação preencha em Configuração >.Lottie.json isso: https://assets1.lottiefiles.com/packages/lf20_oxp5sxfv.json 
+e em Efeitos: loop autoplay
+

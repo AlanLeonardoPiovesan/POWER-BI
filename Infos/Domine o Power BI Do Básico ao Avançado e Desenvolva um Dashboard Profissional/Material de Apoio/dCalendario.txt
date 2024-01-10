@@ -1,0 +1,35 @@
+/*
+Alterar somente nas linhas MenorData e MaiorData a tabela e nome da coluna
+    MenorData = List.Min( Tabela[ColunaData] ),
+    MaiorData = List.Max( Tabela[ColunaData]),
+
+*/
+
+let
+    
+    MenorData = #date( Date.Year(List.Min(fdados[MENOR DATA])),1,1),
+    MaiorData = #date( Date.Year(List.Max(fdados[MAIOR DATA])),12,31),
+    Dias = Duration.Days( MaiorData - MenorData ) + 1,
+    ListarDatas = List.Dates (MenorData, Dias, #duration(1,0,0,0) ),
+    #"Convertido para Tabela" = Table.FromList(ListarDatas, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+    #"Tipo Alterado" = Table.TransformColumnTypes(#"Convertido para Tabela",{{"Column1", type date}}),
+    #"Colunas Renomeadas" = Table.RenameColumns(#"Tipo Alterado",{{"Column1", "Data"}}),
+    #"Ano Inserido" = Table.AddColumn(#"Colunas Renomeadas", "Ano", each Date.Year([Data]), Int64.Type),
+    #"Mês Inserido" = Table.AddColumn(#"Ano Inserido", "Mês", each Date.Month([Data]), Int64.Type),
+    #"Nome do Mês Inserido" = Table.AddColumn(#"Mês Inserido", "Nome do Mês", each Date.MonthName([Data]), type text),
+    #"Colocar Cada Palavra Em Maiúscula" = Table.TransformColumns(#"Nome do Mês Inserido",{{"Nome do Mês", Text.Proper, type text}}),
+    #"Primeiros Caracteres Inseridos" = Table.AddColumn(#"Colocar Cada Palavra Em Maiúscula", "Mes Abrevido", each Text.Start([Nome do Mês], 3), type text),
+    #"Coluna Mesclada Inserida" = Table.AddColumn(#"Primeiros Caracteres Inseridos", "Mes Ano", each Text.Combine({[Mes Abrevido], Text.From([Ano], "pt-BR")}, "-"), type text),
+    #"Personalização Adicionada" = Table.AddColumn(#"Coluna Mesclada Inserida", "AnoMesINT", each [Ano] * 100 + [Mês]),
+    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Personalização Adicionada",{{"AnoMesINT", Int64.Type}}),
+    #"Trimestre Inserido" = Table.AddColumn(#"Tipo Alterado1", "Trimestre", each Date.QuarterOfYear([Data]), Int64.Type),
+    #"Semana do Mês Inserida" = Table.AddColumn(#"Trimestre Inserido", "Semana do Mês", each Date.WeekOfMonth([Data]), Int64.Type),
+    #"Semana do Ano Inserida" = Table.AddColumn(#"Semana do Mês Inserida", "Semana do Ano", each Date.WeekOfYear([Data]), Int64.Type),
+    #"Dia da Semana Inserido" = Table.AddColumn(#"Semana do Ano Inserida", "Dia da Semana", each Date.DayOfWeek([Data]), Int64.Type),
+    #"Nome do Dia Inserido" = Table.AddColumn(#"Dia da Semana Inserido", "Nome do Dia", each Date.DayOfWeekName([Data]), type text),
+    #"Dia Inserido" = Table.AddColumn(#"Nome do Dia Inserido", "Dia", each Date.Day([Data]), Int64.Type),
+    #"Coluna Duplicada" = Table.DuplicateColumn(#"Dia Inserido", "Nome do Dia", "Nome do Dia - Copiar"),
+    #"Colunas Renomeadas1" = Table.RenameColumns(#"Coluna Duplicada",{{"Nome do Dia - Copiar", "Dia Abreviado"}}),
+    #"Primeiros caracteres extraídos" = Table.TransformColumns(#"Colunas Renomeadas1", {{"Dia Abreviado", each Text.Start(_, 3), type text}}),
+in
+    #"Primeiros caracteres extraídos"
